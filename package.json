@@ -1,0 +1,41 @@
+{
+  "name": "design-pattern-taiko",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require esm --timeout=60000",
+    "prettier": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QA-Learning/design-pattern-taiko.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QA-Learning/design-pattern-taiko/issues"
+  },
+  "homepage": "https://github.com/QA-Learning/design-pattern-taiko#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "mocha": "^8.0.1",
+    "taiko": "^1.0.14"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*": [
+      "npm run prettier"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
+  }
+}
