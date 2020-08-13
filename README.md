@@ -59,7 +59,7 @@
 
 ### Test the API
 * Open Postman
-* Select Basic Auth and use the token generated in preveious step
+* Select Basic Auth and use the token generated in previous step
 * Send the `POST` request with `http://127.0.0.1:8000/wp-json/wp/v2/users` and request body as
 ```
 {
