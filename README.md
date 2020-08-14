@@ -10,7 +10,7 @@
 `npm install`
 
 ## Bring up the wordpress app in local
-`docker-compose -f docker-compose.yml up`
+`docker-compose -f docker-compose.yaml up`
 
 
 ## Set up Wordpress app
@@ -20,7 +20,7 @@
 * Click on Install Wordpress
 
 ## Run first test
-* Update username and passowrd in login.spec.js
+* Update username and password in login.spec.js
 * Run `npm test` in another terminal
 
 **Congratulations!!! You have successfully run your first test.**
