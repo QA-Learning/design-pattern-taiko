@@ -1,5 +1,8 @@
-import { click, write } from "taiko";
+import { click } from "taiko";
 
 export default class DesktopFlow {
-  async writePost() {}
+  static async writePosts() {
+    await click("Posts");
+    await click("Add New");
+  }
 }

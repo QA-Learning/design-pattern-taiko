@@ -1,14 +1,14 @@
 import FlowFactory from "../factory/FlowFactory";
+import DesktopFlow from "../factory/DesktopFlow";
 
 let runner;
 
-class SideNavActions {
+export default class SideNavActions {
   constructor() {
     runner = FlowFactory.getInstance();
   }
-  async writePost() {
-    await runner.writePost();
+
+  static async addNewPost() {
+    await DesktopFlow.writePosts();
   }
 }
-
-export default new SideNavActions();

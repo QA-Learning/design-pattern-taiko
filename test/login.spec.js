@@ -4,12 +4,12 @@ import Admin from "../actor/Admin";
 import Author from "../actor/Author";
 import SideNavInterrogations from "../interrogations/SideNavInterrogations";
 describe("WordPress Login", async () => {
-  before("Open Browser", async () => {
+  beforeEach("Open Browser", async () => {
     await openBrowser();
     await goto("http://127.0.0.1:8000/wp-admin/");
   });
 
-  after("Close Browser", async () => {
+  afterEach("Close Browser", async () => {
     await closeBrowser();
   });
 
