@@ -1,29 +1,37 @@
-import {
-  openBrowser,
-  goto,
-  closeBrowser,
-  write,
-  click,
-  into,
-  $,
-  text,
-} from "taiko";
-import { expect } from "chai";
+import { openBrowser, goto, closeBrowser, screenshot } from "taiko";
+
+import Admin from "../actor/admin";
+import Author from "../actor/author";
 
 describe("WordPress Login", async () => {
-  before("Open Browser", async () => {
+  beforeEach("Open Browser", async () => {
     await openBrowser();
     await goto("http://127.0.0.1:8000/wp-admin/");
   });
 
-  after("Close Browser", async () => {
+  afterEach("Close Browser", async () => {
+    await screenshot();
     await closeBrowser();
   });
-  it("User with Valid Login should be able to see settings option", async () => {
-    await write("Karley Crist", into($("#user_login")));
-    await write("gkbjp93kFUFthK7", into($("#user_pass")));
-    await click($("#wp-submit"));
-    const elementPresent = await text("Settings").exists();
-    expect(elementPresent).to.be.true;
+
+  it("User with Valid Admin Login should be able to see settings option", async () => {
+    // Add credentials to JS file Like author, admin and let the class get the credentials
+    let credentials = {
+      username: "admin",
+      password: "admin",
+    };
+    let admin = new Admin(credentials);
+    await admin.login();
+    await admin.shouldHaveSettingsOptions();
+  });
+
+  it("User with Valid Non-Admin Login should be able to see settings option", async () => {
+    let credentials = {
+      username: "taiko",
+      password: "taiko",
+    };
+    let author = new Author(credentials);
+    await author.login();
+    await author.shouldNotHaveSettingsOptions();
   });
 });
