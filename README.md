@@ -7,27 +7,29 @@
 * Code Editor: visual studio code
 
 ## Install Dependencies
+
 `npm install`
 
 ## Bring up the wordpress app in local
 `docker-compose -f docker-compose.yaml up`
 
-
 ## Set up Wordpress app
-* Open http://localhost:8000 in browser
-* Get started with the setup
-* Fill neccessary information to set up user name and password
-* Click on Install Wordpress
+
+- Open http://localhost:8000 in browser
+- Get started with the setup
+- Fill neccessary information to set up user name and password
+- Click on Install Wordpress
 
 ## Run first test
-* Update username and password in login.spec.js
-* Run `npm test` in another terminal
+
+- Update username and passowrd in login.spec.js
+- Run `npm test` in another terminal
 
 **Congratulations!!! You have successfully run your first test.**
 
 ## Enable WP REST API for API Testing
 
-* Login to the Wordpress using the above credentails
+- Login to the Wordpress using the above credentails
 
 ### Install WP REST API Controller Plugin
 * Navigate to Plugins on side navigation bar
@@ -72,16 +74,3 @@
 * Verify the user is created successfully
 
 **Congratulations!!! You are ready for API Testing**
-
-
-
-      
-
-
-
-
-
-
-
-
-
