@@ -1,12 +1,15 @@
 import { openBrowser, goto, closeBrowser, screenshot } from "taiko";
 
+import { createUser } from "../data/SeedData";
+
 import Admin from "../actor/admin";
 import Author from "../actor/author";
+import NewUserBuilder from "../data/NewUserBuilder";
 
 describe("WordPress Login", async () => {
   beforeEach("Open Browser", async () => {
-    await openBrowser();
-    await goto("http://127.0.0.1:8000/wp-admin/");
+    await openBrowser({ headless: false });
+    await goto("http://localhost:8000/wp-admin");
   });
 
   afterEach("Close Browser", async () => {
@@ -25,12 +28,18 @@ describe("WordPress Login", async () => {
     await admin.shouldHaveSettingsOptions();
   });
 
-  it("User with Valid Non-Admin Login should be able to see settings option", async () => {
-    let credentials: Credentials = {
-      username: "taiko",
-      password: "taiko",
-    };
-    let author: Author = new Author(credentials);
+  it.only("User with Valid Non-Admin Login should be able to see settings option", async () => {
+    const user = new NewUserBuilder()
+      .userName()
+      .email()
+      .password()
+      .role(["author"])
+      .firstName()
+      .lastName()
+      .build();
+
+    await createUser(user);
+    let author = new Author(user);
     await author.login();
     await author.shouldNotHaveSettingsOptions();
   });
