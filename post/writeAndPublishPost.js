@@ -4,7 +4,7 @@ export default class WriteAndPublishPost {
   }
 
   async writePost() {
-    this.post.addPost();
-    this.post.publishPost();
+    await this.post.addPost();
+    await this.post.publishPost();
   }
 }

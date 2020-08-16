@@ -4,8 +4,8 @@ import { write, into, focus, textBox, click } from "taiko";
 export default class WritePost {
   async addPost() {
     await SideNavActions.addNewPost();
-    this.addTitle();
-    this.addDescription();
+    await this.addTitle();
+    await this.addDescription();
   }
 
   async addTitle() {
@@ -14,6 +14,7 @@ export default class WritePost {
   }
 
   async addDescription() {
+    //TODO: Add Description
     console.log("Description added");
   }
 

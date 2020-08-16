@@ -6,10 +6,9 @@ export default class WritePostWithCategory {
   }
 
   async writePost() {
-    this.post.writePost;
-    console.log("Adding Category");
-    this.addCategory();
-    this.post.publishPost();
+    await this.post.addPost();
+    await this.addCategory();
+    await this.post.publishPost();
   }
 
   async addCategory() {
