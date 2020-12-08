@@ -4,7 +4,7 @@ import SideNavInterrogations from "../interrogations/SideNavInterrogations";
 import { expect } from "chai";
 
 export default class Author extends Actor {
-  constructor(credentials: Credentials) {
+  constructor(credentials: Required<Credentials>) {
     super(credentials);
   }
 

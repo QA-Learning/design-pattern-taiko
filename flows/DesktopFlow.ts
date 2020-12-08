@@ -1,5 +1,5 @@
 
-export default class DesktopFlow {
+export default class DesktopFlow implements Flow {
   async checkIfSettings(): Promise<void> {
     console.log("In Desktop");
   }

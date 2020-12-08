@@ -1,4 +1,4 @@
 type Credentials = {
-    username: string;
-    password: string;
+    readonly username: string;
+    readonly password: string;
 }

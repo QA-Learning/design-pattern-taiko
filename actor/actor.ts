@@ -9,13 +9,13 @@ export default class Actor {
   private readonly username: string;
   private readonly password: string;
 
-  constructor(credentials: Credentials) {
+  constructor(credentials: Required<Credentials>) {
     runner = FlowManager.getInstance();
     this.username = credentials.username;
     this.password = credentials.password;
   }
 
   async login(): Promise<void> {
-    login(this.username, this.password);
+    await login(this.username, this.password);
   }
 }

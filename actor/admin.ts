@@ -9,7 +9,7 @@ let runner: MobileFlow | DesktopFlow;
 
 export default class Admin extends Actor {
 
-  constructor(credentials: Credentials) {
+  constructor(credentials: Required<Credentials>) {
     super(credentials);
     runner = FlowManager.getInstance();
   }
