@@ -1,16 +1,14 @@
-const { default: Actor } = require("./actor");
+import { default as Actor } from "./actor";
 
 import SideNavInterrogations from "../interrogations/SideNavInterrogations";
 import { expect } from "chai";
 
 export default class Author extends Actor {
-  constructor(credentials) {
-    super();
-    this.username = credentials.username;
-    this.password = credentials.password;
+  constructor(credentials: Credentials) {
+    super(credentials);
   }
 
-  async shouldNotHaveSettingsOptions() {
+  async shouldNotHaveSettingsOptions(): Promise<void> {
     expect(await SideNavInterrogations.checkIfSettings()).to.be.false;
   }
 }

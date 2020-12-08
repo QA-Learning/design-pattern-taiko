@@ -1,7 +1,7 @@
 import SideNavElements from "../elements/SideNavElements";
 
 export default {
-  async checkIfSettings() {
+  async checkIfSettings(): Promise<boolean> {
     return await SideNavElements.settings.exists();
   },
 };

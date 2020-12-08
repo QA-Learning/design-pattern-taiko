@@ -16,21 +16,21 @@ describe("WordPress Login", async () => {
 
   it("User with Valid Admin Login should be able to see settings option", async () => {
     // Add credentials to JS file Like author, admin and let the class get the credentials
-    let credentials = {
+    let credentials: Credentials = {
       username: "admin",
       password: "admin",
     };
-    let admin = new Admin(credentials);
+    let admin: Admin = new Admin(credentials);
     await admin.login();
     await admin.shouldHaveSettingsOptions();
   });
 
   it("User with Valid Non-Admin Login should be able to see settings option", async () => {
-    let credentials = {
+    let credentials: Credentials = {
       username: "taiko",
       password: "taiko",
     };
-    let author = new Author(credentials);
+    let author: Author = new Author(credentials);
     await author.login();
     await author.shouldNotHaveSettingsOptions();
   });

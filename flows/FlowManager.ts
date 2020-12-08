@@ -1,8 +1,8 @@
-import DesktopFlow from "../flows/DesktopFlow";
-import MobileFlow from "../flows/MobileFlow";
+import DesktopFlow from "./DesktopFlow";
+import MobileFlow from "./MobileFlow";
 
 export default class FlowManager {
-  static getInstance() {
+  static getInstance(): MobileFlow | DesktopFlow {
     if (process.env.TAIKO_EMULATE_DEVICE) {
       return new MobileFlow();
     } else {

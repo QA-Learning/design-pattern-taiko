@@ -2,16 +2,19 @@ import { expect } from "chai";
 import SideNavInterrogations from "../interrogations/SideNavInterrogations";
 import Actor from "./actor";
 import FlowManager from "../flows/FlowManager";
-let runner;
+import DesktopFlow from "../flows/DesktopFlow";
+import MobileFlow from "../flows/MobileFlow";
+
+let runner: MobileFlow | DesktopFlow;
+
 export default class Admin extends Actor {
-  constructor(credentials) {
-    super();
+
+  constructor(credentials: Credentials) {
+    super(credentials);
     runner = FlowManager.getInstance();
-    this.username = credentials.username;
-    this.password = credentials.password;
   }
 
-  async shouldHaveSettingsOptions() {
+  async shouldHaveSettingsOptions(): Promise<void> {
     await runner.checkIfSettings();
     expect(await SideNavInterrogations.checkIfSettings()).to.be.true;
   }
