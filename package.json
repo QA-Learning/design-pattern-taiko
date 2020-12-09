@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require esm --timeout=60000",
+    "tstest": "mocha -r ts-node/register test/*.ts --timeout=60000",
     "prettier": "prettier --write ."
   },
   "repository": {
@@ -22,12 +23,13 @@
     "@types/mocha": "^8.0.4",
     "chai": "^4.2.0",
     "esm": "^3.2.25",
+    "faker": "^4.1.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "mocha": "^8.0.1",
-    "taiko": "^1.0.14",
     "supertest": "^4.0.2",
-    "faker": "^4.1.0"
+    "taiko": "^1.0.14",
+    "ts-node": "^9.1.1"
   },
   "husky": {
     "hooks": {
