@@ -1,4 +1,5 @@
 import { click, $ } from "taiko";
+import { Flow } from "./Flow"
 
 export default class MobileFlow implements Flow {
   async checkIfSettings(): Promise<void> {

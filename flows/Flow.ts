@@ -1,3 +1,3 @@
-interface Flow {
+export interface Flow {
     checkIfSettings(): Promise<void>;
 }

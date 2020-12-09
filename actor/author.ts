@@ -1,4 +1,5 @@
 import { default as Actor } from "./actor";
+import { Credentials } from "../types/Credentials"
 
 import SideNavInterrogations from "../interrogations/SideNavInterrogations";
 import { expect } from "chai";
