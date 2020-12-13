@@ -2,7 +2,7 @@ import { login } from "../interactions/LoginInteractions";
 import FlowManager from "../flows/FlowManager";
 import DesktopFlow from "../flows/DesktopFlow";
 import MobileFlow from "../flows/MobileFlow";
-import { Credentials } from "../types/Credentials"
+import { Credentials } from "../types/Credentials";
 
 let runner: MobileFlow | DesktopFlow;
 
