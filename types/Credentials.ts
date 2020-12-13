@@ -1,4 +1,4 @@
 export type Credentials = {
-    readonly username: string;
-    readonly password: string;
-}
+  readonly username: string;
+  readonly password: string;
+};

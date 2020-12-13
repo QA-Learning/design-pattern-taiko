@@ -1,3 +1,3 @@
 export interface Flow {
-    checkIfSettings(): Promise<void>;
+  checkIfSettings(): Promise<void>;
 }

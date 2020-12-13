@@ -1,10 +1,13 @@
 import { openBrowser, goto, closeBrowser, screenshot } from "taiko";
-import {Credentials} from "../types/Credentials"
-import { createUser } from "../data/SeedData";
+
+import NewUserBuilder from "../data/NewUserBuilder";
+import User from "../data/User";
+import { createUser } from "../api/CreateUser";
+import { Credentials } from "../types/Credentials";
+import { UserRole } from "../constants/constants";
 
 import Admin from "../actor/admin";
 import Author from "../actor/author";
-import NewUserBuilder from "../data/NewUserBuilder";
 
 describe("WordPress Login", async () => {
   beforeEach("Open Browser", async () => {
@@ -28,21 +31,19 @@ describe("WordPress Login", async () => {
     await admin.shouldHaveSettingsOptions();
   });
 
-  // Temporarily commenting the test to exclude the compilation of dependant js files
-  // xit("User with Valid Non-Admin Login should be able to see settings option", async () => {
-  //   const user = new NewUserBuilder()
-  //     .userName()
-  //     .email()
-  //     .password()
-  //     .role(["author"])
-  //     .firstName()
-  //     .lastName()
-  //     .build();
+  it("User with Valid Non-Admin Login should be able to see settings option", async () => {
+    const user: User = new NewUserBuilder()
+      .setUsername()
+      .setEmail()
+      .setPassword()
+      .setRoles([UserRole.Author])
+      .setFirstName()
+      .setLastName()
+      .build();
 
-  //     console.log(user);
-  //   // await createUser(user);
-  //   // let author = new Author(user);
-  //   // await author.login();
-  //   // await author.shouldNotHaveSettingsOptions();
-  // });
+    await createUser(user);
+    let author = new Author(user);
+    await author.login();
+    await author.shouldNotHaveSettingsOptions();
+  });
 });

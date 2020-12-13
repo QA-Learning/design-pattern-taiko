@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require esm --timeout=60000",
-    "tstest": "mocha -r ts-node/register test/*.ts --timeout=60000",
+    "test": "mocha -r ts-node/register test/*.ts --timeout=60000",
     "prettier": "prettier --write ."
   },
   "repository": {
@@ -20,7 +19,9 @@
   "homepage": "https://github.com/QA-Learning/design-pattern-taiko#readme",
   "dependencies": {
     "@types/chai": "^4.2.14",
+    "@types/faker": "^5.1.5",
     "@types/mocha": "^8.0.4",
+    "@types/supertest": "^2.0.10",
     "chai": "^4.2.0",
     "esm": "^3.2.25",
     "faker": "^4.1.0",
